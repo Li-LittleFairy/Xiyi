@@ -26,6 +26,19 @@
 
 开发服务默认限制为本机访问；端口及确切版本在初始化时检查环境后记录。本次未安装新软件；已使用现有服务创建xiyi_dev及七张表，执行结果见docs/04-组件说明/database-mysql/execution-2026-11-19.md。
 
+### 后端已跑通（2026-11-19）
+
+后端 Spring Boot 3.3.5 + JDK 17 已接入，最小接口「列出洗护项目」已验证 `浏览器 → 后端 → MySQL → JSON` 全链路。工程信息：
+
+- 构建：Maven 3.9.16，`pom.xml` 引入 `spring-boot-starter-web`、`spring-boot-starter-jdbc`、`mysql-connector-j`、`springdoc-openapi`（自带 Swagger UI）。
+- 启动：`mvn -DskipTests package` 后 `java -jar target/xiyi-1.0-SNAPSHOT.jar --server.port=8080`。
+- 数据库账号：已创建应用专用账号 `xiyi_app@localhost`（仅授权 xiyi_dev 库读写）。
+  - 本机开发账号密码写在 `src/main/resources/application-local.yml`，`application.yml` 默认激活 `local` profile，直接启动即可连库，无需手动传环境变量。
+  - 该文件已被 `.gitignore` 忽略，不会提交；密码仍遵循「不写入源码/仓库」的约定（被忽略的本地文件不进入版本库）。部署其它环境时用 `SPRING_PROFILES_ACTIVE` 覆盖 profile，或继续用 `XIYI_DB_USER` / `XIYI_DB_PASSWORD` 环境变量注入。
+- 调试入口：Swagger UI 在 `http://localhost:8080/swagger-ui/index.html`，接口文档 `http://localhost:8080/v3/api-docs`。
+
+**端口注意**：本机环境存在 `SERVER__PORT` 环境变量（WorkBuddy 内部变量），Spring Boot 会将其误读为 `server.port`，导致应用去抢被占用的 55908 端口。启动时务必显式传 `--server.port=8080`（或其它未被占用端口），不要依赖 `application.yml` 里的默认端口。
+
 ## 三、选型时的候选比较（历史依据）
 
 | 方案 | 适用方向 | 需要付出的工作 |

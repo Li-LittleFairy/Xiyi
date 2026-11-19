@@ -34,6 +34,8 @@
 | `02-开发文档/phase1-order-walkthrough.md` | 一期基础流程如何影响七张核心表，具体示例及规则假设是什么 |
 | `02-开发文档/data-model-v1.md` | 七张表的字段、关联、索引和后端需要保证的规则 |
 | `02-开发文档/development-environment.md` | 前端、后端、数据库在哪里运行，环境和交付还缺什么 |
+| `02-开发文档/authentication-api.md` | 员工登录、当前身份、退出和 CSRF 如何调用 |
+| `02-开发文档/backend-api-catalog.md` | 员工、顾客、项目、订单、收款和工作台接口如何分类与调用 |
 
 ## 03-ADR
 
@@ -42,6 +44,7 @@
 | `03-ADR/README.md` | 重要技术决定在哪里、状态是什么 |
 | `03-ADR/0001-local-development-first.md` | 先在本机开发演示，正式部署之后确定 |
 | `03-ADR/0002-database-selection.md` | 选择本机现有 MySQL |
+| `03-ADR/0003-staff-session-authentication.md` | 门店员工使用 Session 登录与固定角色 |
 | `03-ADR/template.md` | 新增 ADR 使用的模板 |
 
 ## 04-组件说明

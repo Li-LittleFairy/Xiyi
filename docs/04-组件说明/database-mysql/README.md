@@ -1,6 +1,8 @@
 # MySQL 建表脚本
 
-`database/mysql/V001__create_core_tables.sql` 已于2026-11-19在项目库xiyi_dev执行成功，创建七张业务表；数据库层验证通过，七表目前为空。执行记录及脚本SHA-256见 `execution-2026-11-19.md`。数据库选型见 ADR-0002，字段与规则见 `docs/02-开发文档/data-model-v1.md`。
+`database/mysql/V001__create_core_tables.sql` 已于2026-11-19在项目库xiyi_dev执行成功，创建七张业务表；数据库层验证通过。执行记录及脚本SHA-256见 `execution-2026-11-19.md`。数据库选型见 ADR-0002，字段与规则见 `docs/02-开发文档/data-model-v1.md`。
+
+`database/mysql/V002__seed_demo_data.sql` 为虚构演示数据（2名员工、2名客户、4个洗护项目、3张订单、6条衣物明细、1条收款、10条操作记录），已于2026-11-19执行。该脚本为便于反复演示而可重复运行：每次执行先清空七张表再重建，业务正式数据接入后不应再运行。
 
 ## 环境事实与执行前提
 

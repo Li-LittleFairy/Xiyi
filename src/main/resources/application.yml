@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: xiyi
+  # 默认激活 local profile，使用本机开发账号（见 application-local.yml，已被 git 忽略）。
+  # 若要在其它环境部署，通过 SPRING_PROFILES_ACTIVE 覆盖即可。
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/xiyi_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${XIYI_DB_USER:root}
+    password: ${XIYI_DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 应用层约定：所有 DATETIME 以 UTC 写入数据库，读取时按业务需要转换
+jackson:
+  time-zone: UTC

@@ -1,0 +1,11 @@
+### 1. 店长登录
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "linxiao",
+  "password": "demo-pass-linxiao"
+}
+
+### 2. 查看当前登录员工
+GET http://localhost:8080/api/auth/me
