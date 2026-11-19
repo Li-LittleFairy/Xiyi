@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f4" />
+    <meta name="description" content="拾净洗护：顾客送洗与门店管理交互展示。" />
+    <title>拾净洗护 · 产品展示</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./customer.css" />
+    <link rel="stylesheet" href="./store.css" />
+    <script src="./store.js" defer></script>
+    <script src="./customer.js" defer></script>
+  </head>
+  <body>
+    <div class="showcase-bar"><a href="#/home" class="showcase-name">拾净 <span>产品展示</span></a><nav aria-label="展示端切换"><a href="#/home" data-mode="customer">顾客端</a><a href="#/store/dashboard" data-mode="store">门店端</a><a href="#/map" data-mode="map">页面总览</a></nav><span class="showcase-hint">LAUNDRY & CARE</span></div>
+    <header class="site-header">
+      <div class="header-inner">
+        <button class="brand" type="button" data-go="home" aria-label="返回首页">
+          <span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M9 27.5c3.5-1 6-4 7.3-8.8 1.5 6.8 5.5 10.7 14.7 11.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M25.8 7.5c-7.9 2-13.1 7.8-14.3 15.5M29.5 14.3c-2.7 1.5-4.7 3.4-6 5.7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+          <span>拾净<span class="brand-sub">洗护</span></span>
+        </button>
+        <nav class="desktop-nav" aria-label="主导航">
+          <button type="button" data-go="home">首页</button>
+          <button type="button" data-go="services">洗护服务</button>
+          <button type="button" data-go="orders">我的订单</button>
+          <button type="button" data-go="profile">我的</button>
+        </nav>
+        <button class="header-cta" type="button" data-go="booking">立即送洗 <span aria-hidden="true">↗</span></button>
+      </div>
+    </header>
+    <main id="app" tabindex="-1"></main>
+    <nav class="mobile-nav" aria-label="底部导航">
+      <button type="button" data-go="home"><span class="nav-icon" data-icon="home"></span><span>首页</span></button>
+      <button type="button" data-go="services"><span class="nav-icon" data-icon="sparkle"></span><span>服务</span></button>
+      <button type="button" data-go="orders"><span class="nav-icon" data-icon="receipt"></span><span>订单</span></button>
+      <button type="button" data-go="profile"><span class="nav-icon" data-icon="user"></span><span>我的</span></button>
+    </nav>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
